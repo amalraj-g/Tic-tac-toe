@@ -16,7 +16,7 @@ const win=[
 let state=["","","","","","","","",""];
 let currentPlayer=x;
 let player="X";
-let runningCdn=false;
+let running=false;
 
 init();
 
@@ -24,7 +24,7 @@ function init(){
   cellFrame.forEach(cell => cell.addEventListener("click", cellClick));
   btnRestart.addEventListener("click",restartGame);
   playStatus.textContent=`${player} Your Turn`;
-  runningCdn=true;
+  running=true;
 }
 
 function cellClick(){
@@ -68,7 +68,7 @@ function checkWinner(){
 
   if(isWon){
     playStatus.textContent=`${player} Won..`;
-    runningCdn=false;
+    running=false;
   }else if(!state.includes("")){
     playStatus.textContent=`Game Draw..!`;
     runningCdn=false;
@@ -82,7 +82,7 @@ function restartGame(){
   state=["","","","","","","","",""];
   currentPlayer=x;
   player="X";
-  runningCdn=true;
+  running=true;
   playStatus.textContent=`${player} Your Turn`;
 
   cellFrame.forEach(cell=>{
